@@ -3,10 +3,12 @@ package tree;
 public class BinarySearchTree {
 	Node root;
 	int numLeaves;
+	int height;
 	
 	public BinarySearchTree() {
 		this.root=null;
 		this.numLeaves = 0;
+		this.height = 0;
 	}
 	
 	//****** INSERT ***************************
@@ -54,6 +56,20 @@ public class BinarySearchTree {
 	}
 	
 	private Node delete(Node current, int key){
+		if(current != null) {
+			if(current.left.key == key && current.left.right == null && current.left.left == null) {
+				current.left = null;
+			}
+			if(current.right.key == key && current.right.right == null && current.right.left == null) {
+				current.right = null;
+			}
+			if(current.key > key) {
+				return delete(current.left, key);
+			}else if(current.key < key) {
+				return delete(current.left, key);
+			}
+			
+		}
 		return null;
 	}
 	
@@ -71,10 +87,14 @@ public class BinarySearchTree {
 		if(root != null) {
 			height(root.left);
 			height(root.right);
-			
+			if(root.left != null && root.right != null) {
+				if(root.left.key < root.key || root.right.key > root.key) {
+					this.height++;
+				}
+			}
 		}
 		
-    	return 0;
+    	return this.height;
     }
     
     //****** Count Leaves ***************************

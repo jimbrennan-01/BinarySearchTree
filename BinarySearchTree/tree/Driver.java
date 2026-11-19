@@ -32,6 +32,12 @@ public class Driver {
 		//min val
 		System.out.println("Min: " + tree.findMin(tree.root));
 		
+		//height
+		System.out.println("Height: " + tree.height(tree.root));
+		
+		//delete ????
+		
+		
 	}
 
 }
