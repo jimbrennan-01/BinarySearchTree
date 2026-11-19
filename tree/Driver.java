@@ -26,6 +26,12 @@ public class Driver {
 		//count leaves
 		System.out.println("Leaf count: " + tree.countLeaves(tree.root));
 		
+		//is valid bst
+		System.out.println("Valid?: " + tree.isValidBST(tree.root));
+		
+		//min val
+		System.out.println("Min: " + tree.findMin(tree.root));
+		
 	}
 
 }

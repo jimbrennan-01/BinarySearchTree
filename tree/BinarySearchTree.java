@@ -60,11 +60,15 @@ public class BinarySearchTree {
 	
 	//****** Find Minimum Key Value ***************************
 	public int findMin(Node node) {
-		return 0;
+		while(node.left != null) {
+			node = node.left;
+		}
+		return node.key;
 	}
 	
 	//****** Height (Count in Nodes) ***************************
 	public int height(Node root) {
+		
     	return 0;
     }
     
@@ -83,7 +87,16 @@ public class BinarySearchTree {
 	
 	//****** isValidBST ***************************
 	public boolean isValidBST(Node root) {
-		return false;
+		if(root != null) {
+			isValidBST(root.left);
+			isValidBST(root.right);
+			if(root.left != null && root.right != null) {
+				if(root.left.key > root.key || root.right.key < root.key) {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 	
 	

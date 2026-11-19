@@ -1,0 +1,37 @@
+package tree;
+
+public class Driver {
+
+	public static void main(String[] args) {
+		BinarySearchTree tree = new BinarySearchTree();
+		
+		tree.insert(10);
+		tree.insert(5);
+		tree.insert(15);
+		tree.insert(12);
+		tree.insert(8);
+		tree.insert(2);
+		tree.insert(17);
+		
+		tree.inOrderTraversal(tree.root);
+		System.out.println();
+		tree.preOrderTraversal(tree.root);
+		System.out.println();
+		tree.postOrderTraversal(tree.root);
+		System.out.println();
+		
+		//search
+		System.out.println("Search value: " + tree.search(17).key);
+		
+		//count leaves
+		System.out.println("Leaf count: " + tree.countLeaves(tree.root));
+		
+		//is valid bst
+		System.out.println("Valid?: " + tree.isValidBST(tree.root));
+		
+		//min val
+		System.out.println("Min: " + tree.findMin(tree.root));
+		
+	}
+
+}
